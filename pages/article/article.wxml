@@ -1,0 +1,13 @@
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-article">
+      <view class="weui-article__h1" style="text-align: center;">{{poem.title}}</view>
+      <view class="weui-article__h3" style="text-align: center;">{{poem.author}}</view>
+      <view class="weui-article__section">
+        <view class="weui-article__section">
+          <text selectable="{{true}}" space="emsp">{{poem.content}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
