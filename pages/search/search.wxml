@@ -18,7 +18,7 @@
     </view>
 
     <view class="weui-cells weui-cells_after-title" wx:if="{{inputVal.length > 0}}">
-      <navigator url="../article/article?id={{item.id}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active" wx:for="{{searchResults}}">
+      <navigator url="../article/article?id={{item.id}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active" wx:for="{{searchResults}}" wx:key="*this">
         <view class="weui-cell__bd">{{item.title}}</view>
         <view class="weui-cell__ft weui-cell__ft_in-access">{{item.author}}</view>
       </navigator>
