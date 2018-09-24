@@ -27,6 +27,7 @@ Page({
     this.search(e.detail.value);
   },
   saveSearchResults: function(poems) {
+    console.log(poems);
     wx.setStorage({
       key: "searchResults",
       data: poems
@@ -47,13 +48,11 @@ Page({
         that.setData({
           searchResults: res.data
         });
-
         that.saveSearchResults(res.data);
       },
       success: function(res) {
         if (res.data.code == 0) {
-          resolve(res)
-
+          resolve(res);
         }
       }
     });

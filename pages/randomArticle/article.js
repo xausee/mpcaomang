@@ -11,7 +11,7 @@ Page({
   onShareAppMessage: function(ops) {
     if (ops.from === 'button') {
       // 来自页面内转发按钮
-      console.log(ops.target)
+      console.log(ops.target);
       comsole.log('../article/article?id=' + this.data.poem.id);
     }
     return {
@@ -38,62 +38,61 @@ Page({
     return Math.floor(Math.random() * (upper - lower + 1)) + lower;
   },
   onLoad: function() {
-    this.getRandomPoems();
+    this.getRandomPoem();
   },
-
-  getRandomPoems: function() {
+  /**
+   * 调用随机获取诗歌接口
+   */
+  getRandomPoem: function() {
     var that = this
     wx.request({
-      url: 'http://my-lcg.site/getRandomPoems',
+      url: 'http://my-lcg.site/getRandomPoem',
       data: {},
       method: "POST",
       header: {
         "Content-Type": "application/json"
       },
       complete: function(res) {
-        console.log(res.data);
         that.setData({
-          poem: res.data[that.random(0, 4)]
+          poem: res.data
         });
       },
       success: function(res) {
         if (res.data.code == 0) {
-          resolve(res)
-
+          resolve(res);
         }
       }
     })
   },
 
   handletouchmove: function(event) {
-    console.log(event)
-    let currentX = event.touches[0].pageX
-    let currentY = event.touches[0].pageY
+    console.log(event);
+    let currentX = event.touches[0].pageX;
+    let currentY = event.touches[0].pageY;
 
-    console.log(currentX)
-    console.log(this.data.lastX)
-    let text = ""
+    console.log(currentX);
+    console.log(this.data.lastX);
+    let text = "";
     if ((currentX - this.data.lastX) < 0) {
       text = "向左滑动";
-      this.getRandomPoems();
+      this.getRandomPoem();
     } else if (((currentX - this.data.lastX) > 1000)) {
       text = "向右滑动";
     }
     //将当前坐标进行保存以进行下一次计算
-    this.data.lastX = currentX
-    this.data.lastY = currentY
+    this.data.lastX = currentX;
+    this.data.lastY = currentY;
     this.setData({
       text: text,
     });
   },
 
   handletouchtart: function(event) {
-    console.log(event)
-    this.data.lastX = event.touches[0].pageX
-    this.data.lastY = event.touches[0].pageY
+    console.log(event);
+    this.data.lastX = event.touches[0].pageX;
+    this.data.lastY = event.touches[0].pageY;
   },
   handletap: function(event) {
-    console.log(event)
+    console.log(event);
   },
-
 });

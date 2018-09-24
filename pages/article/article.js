@@ -1,16 +1,29 @@
 Page({
   onLoad: function(options) {
+    this.getPoem(options["id"]);
+  },
+  /**
+   * 调用单首诗歌查询接口，获取诗歌
+   */
+  getPoem: function(id) {
     var that = this;
-    wx.getStorage({
-      key: "searchResults",
+    wx.request({
+      url: 'http://my-lcg.site/getPoem',
+      data: {
+        "id": id
+      },
+      method: "POST",
+      header: {
+        "Content-Type": "application/json"
+      },
+      complete: function(res) {
+        that.setData({
+          poem: res.data
+        });
+      },
       success: function(res) {
-        for (var i = 0; i < res.data.length; i++) {
-          var poem = res.data[i];
-          if (poem.id === options["id"]) {
-            that.setData({
-              poem: poem
-            })
-          }
+        if (res.data.code == 0) {
+          resolve(res);
         }
       }
     })
