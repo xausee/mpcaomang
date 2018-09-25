@@ -1,7 +1,11 @@
 Page({
+  /**
+   * 初始加载处理，获取诗歌内容
+   */
   onLoad: function(options) {
     this.getPoem(options["id"]);
   },
+
   /**
    * 调用单首诗歌查询接口，获取诗歌
    */
@@ -28,6 +32,7 @@ Page({
       }
     })
   },
+
   /**
    * 用户点击右上角分享
    */
@@ -38,7 +43,7 @@ Page({
       comsole.log('../article/article?id=' + this.data.poem.id);
     }
     return {
-      title: '浅浅草莽',
+      title: '草莽',
       //imageUrl: '../../images/CaoMang.png',
       path: '../article/article?id=' + this.data.poem.id,
       success: function(res) {
@@ -51,4 +56,5 @@ Page({
       }
     }
   },
+  
 });

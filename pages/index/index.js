@@ -9,24 +9,37 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-  // 导航到随机诗歌页面
+
+  /**
+   * 导航到随机诗歌页面
+   */
   goToRandomArticlePage: function() {
     wx.navigateTo({
       url: '../randomArticle/article'
     })
   },
-  //导航到搜索页面
+
+  /**
+   * 导航到搜索页面
+   */
   goToSearchPage: function() {
     wx.navigateTo({
       url: '../search/search'
     })
   },
-  //事件处理函数
+
+  /**
+   * 导航到日式查看页面
+   */
   viewLogs: function() {
     wx.navigateTo({
       url: '../logs/logs'
     })
   },
+
+  /**
+   * 初始加载处理
+   */
   onLoad: function() {
     if (app.globalData.userInfo) {
       this.setData({
@@ -55,6 +68,10 @@ Page({
       })
     }
   },
+
+  /**
+   * 获取用户信息
+   */
   getUserInfo: function(e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo

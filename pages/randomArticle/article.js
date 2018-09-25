@@ -1,10 +1,19 @@
 Page({
   data: {
+    /**
+     * 页面展示的诗歌实体数据对象
+     */
     poem: {},
+    /**
+     * 触摸开始时的x坐标
+     */
     lastX: 0,
+    /**
+     * 触摸开始时的y坐标
+     */
     lastY: 0,
-    text: "没有滑动",
   },
+
   /**
    * 用户点击右上角分享
    */
@@ -15,19 +24,18 @@ Page({
       comsole.log('../article/article?id=' + this.data.poem.id);
     }
     return {
-      title: '浅浅草莽',
+      title: '草莽',
       //imageUrl: '../../images/CaoMang.png',
       path: '../article/article?id=' + this.data.poem.id,
       success: function(res) {
-        // 转发成功
         console.log("转发成功:" + JSON.stringify(res));
       },
       fail: function(res) {
-        // 转发失败
         console.log("转发失败:" + JSON.stringify(res));
       }
     }
   },
+
   /**
    * 产生随机整数，包含下限值，包括上限值
    * @param {Number} lower 下限
@@ -37,11 +45,16 @@ Page({
   random: function(lower, upper) {
     return Math.floor(Math.random() * (upper - lower + 1)) + lower;
   },
+
+  /**
+   * 初始加载处理，随机获取一篇诗歌
+   */
   onLoad: function() {
     this.getRandomPoem();
   },
+
   /**
-   * 调用随机获取诗歌接口
+   * 调用随机诗歌接口，获取诗歌数据
    */
   getRandomPoem: function() {
     var that = this
@@ -65,6 +78,9 @@ Page({
     })
   },
 
+  /**
+   * 处理手指触摸后移动事件，当判断是向左滑动时随机更新一篇诗歌
+   */
   handletouchmove: function(event) {
     console.log(event);
     let currentX = event.touches[0].pageX;
@@ -73,26 +89,30 @@ Page({
     console.log(currentX);
     console.log(this.data.lastX);
     let text = "";
-    if ((currentX - this.data.lastX) < 0) {
-      text = "向左滑动";
+    if ((currentX - this.data.lastX) < -10) {
+      console.log('向左滑动');
       this.getRandomPoem();
-    } else if (((currentX - this.data.lastX) > 1000)) {
-      text = "向右滑动";
+    } else if (((currentX - this.data.lastX) > 10)) {
+      console.log('向右滑动');
     }
     //将当前坐标进行保存以进行下一次计算
     this.data.lastX = currentX;
     this.data.lastY = currentY;
-    this.setData({
-      text: text,
-    });
   },
 
+  /**
+   * 处理手指触摸动作开始事件，将当前坐标数据保存下来
+   */
   handletouchtart: function(event) {
     console.log(event);
     this.data.lastX = event.touches[0].pageX;
     this.data.lastY = event.touches[0].pageY;
   },
+
+  /**
+   * 处理点击事件，暂无实际内容
+   */
   handletap: function(event) {
-    console.log(event);
+    //console.log(event);
   },
 });

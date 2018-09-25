@@ -26,13 +26,10 @@ Page({
     console.log(e.detail.value);
     this.search(e.detail.value);
   },
-  saveSearchResults: function(poems) {
-    console.log(poems);
-    wx.setStorage({
-      key: "searchResults",
-      data: poems
-    })
-  },
+
+  /**
+   * 调用诗歌搜索接口进行搜索
+   */
   search: function(key) {
     var that = this;
     wx.request({
@@ -48,7 +45,6 @@ Page({
         that.setData({
           searchResults: res.data
         });
-        that.saveSearchResults(res.data);
       },
       success: function(res) {
         if (res.data.code == 0) {
@@ -57,4 +53,5 @@ Page({
       }
     });
   },
+
 });
