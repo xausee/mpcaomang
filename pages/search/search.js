@@ -33,7 +33,7 @@ Page({
   search: function(key) {
     var that = this;
     wx.request({
-      url: 'http://my-lcg.site/searchPoem',
+      url: 'https://bitdata.site/searchPoem',
       data: {
         "key": key
       },

@@ -59,7 +59,7 @@ Page({
   getRandomPoem: function() {
     var that = this
     wx.request({
-      url: 'http://my-lcg.site/getRandomPoem',
+      url: 'https://bitdata.site/getRandomPoem',
       data: {},
       method: "POST",
       header: {

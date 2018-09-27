@@ -12,7 +12,7 @@ Page({
   getPoem: function(id) {
     var that = this;
     wx.request({
-      url: 'http://my-lcg.site/getPoem',
+      url: 'https://bitdata.site/getPoem',
       data: {
         "id": id
       },
