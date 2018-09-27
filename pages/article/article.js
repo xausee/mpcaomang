@@ -45,7 +45,7 @@ Page({
     return {
       title: '草莽',
       //imageUrl: '../../images/CaoMang.png',
-      path: '../article/article?id=' + this.data.poem.id,
+      path: 'pages/article/article?id=' + this.data.poem.id,
       success: function(res) {
         // 转发成功
         console.log("转发成功:" + JSON.stringify(res));
