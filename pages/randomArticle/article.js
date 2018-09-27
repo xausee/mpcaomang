@@ -57,7 +57,7 @@ Page({
    * 调用随机诗歌接口，获取诗歌数据
    */
   getRandomPoem: function() {
-    var that = this
+    var that = this;
     wx.request({
       url: 'https://bitdata.site/getRandomPoem',
       data: {},
