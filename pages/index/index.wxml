@@ -18,8 +18,8 @@
     <text class="userinfo-nickname">{{motto}}</text>
   </view>
   <view class="button-sp-area">
-    <button bindtap="goToRandomArticlePage" class="weui-btn mini-btn" type="primary" size="mini" plain="true">随便看看</button>
-    <button bindtap="goToSearchPage" class="weui-btn mini-btn" type="primary" size="mini" plain="true">精确搜索</button>
+    <button bindtap="goToRandomArticlePage" class="weui-btn mini-btn" type="primary" size="mini" plain="true">随便读读</button>
+    <button bindtap="goToSearchPage" class="weui-btn mini-btn" type="primary" size="mini" plain="true">自由搜索</button>
   </view>
   <view class="weui-footer weui-footer_fixed-bottom">
     <view class="weui-footer__text">Copyright © 2018 bitdata.site</view>

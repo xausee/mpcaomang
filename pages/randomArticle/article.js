@@ -21,12 +21,11 @@ Page({
     if (ops.from === 'button') {
       // 来自页面内转发按钮
       console.log(ops.target);
-      comsole.log('../article/article?id=' + this.data.poem.id);
     }
     return {
-      title: '草莽',
+      title: this.data.poem.title + " " + this.data.poem.author,
       //imageUrl: '../../images/CaoMang.png',
-      path: 'pages/article/article?id=' + this.data.poem.id,
+      path: '/pages/article/article?id=' + this.data.poem.id,
       success: function(res) {
         console.log("转发成功:" + JSON.stringify(res));
       },

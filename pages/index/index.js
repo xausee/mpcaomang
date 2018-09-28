@@ -4,7 +4,7 @@ const app = getApp()
 
 Page({
   data: {
-    motto: '读一读现代诗\n欢迎来草莽',
+    motto: '诗歌，不是群体的狂欢\n而是一个人的独自悲伤\n和小欣喜',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
@@ -35,6 +35,27 @@ Page({
     wx.navigateTo({
       url: '../logs/logs'
     })
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function(ops) {
+    if (ops.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(ops.target);
+    }
+    return {
+      title: '草莽',
+      //imageUrl: '../../images/CaoMang.png',
+      path: '/pages/index/index',
+      success: function(res) {
+        console.log("转发成功:" + JSON.stringify(res));
+      },
+      fail: function(res) {
+        console.log("转发失败:" + JSON.stringify(res));
+      }
+    }
   },
 
   /**
