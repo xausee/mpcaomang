@@ -65,14 +65,19 @@ Page({
         "Content-Type": "application/json"
       },
       complete: function(res) {
+        // 什么也不做
+      },
+      success: function(res) {
         that.setData({
           poem: res.data
         });
-      },
-      success: function(res) {
+
         if (res.data.code == 0) {
           resolve(res);
         }
+      },
+      fail: function(res) {
+        console.warn("服务器错误，没有返回数据");
       }
     })
   },
@@ -81,9 +86,40 @@ Page({
    * 处理手指触摸后移动事件，当判断是向左滑动时随机更新一篇诗歌
    */
   handletouchmove: function(event) {
+    // console.log(event);
+    // let currentX = event.touches[0].pageX;
+    // let currentY = event.touches[0].pageY;
+
+    // console.log(currentX);
+    // console.log(this.data.lastX);
+    // let text = "";
+    // if ((currentX - this.data.lastX) < -10) {
+    //   console.log('向左滑动');
+    //   this.getRandomPoem();
+    // } else if (((currentX - this.data.lastX) > 10)) {
+    //   console.log('向右滑动');
+    // }
+    // //将当前坐标进行保存以进行下一次计算
+    // this.data.lastX = currentX;
+    // this.data.lastY = currentY;
+  },
+
+  /**
+   * 处理手指触摸动作开始事件，将当前坐标数据保存下来
+   */
+  handletouchstart: function(event) {
     console.log(event);
-    let currentX = event.touches[0].pageX;
-    let currentY = event.touches[0].pageY;
+    this.data.lastX = event.touches[0].pageX;
+    this.data.lastY = event.touches[0].pageY;
+  },
+
+  /**
+   * 处理手指触摸动作结束事件，当判断是向左滑动一定距离时随机更新一篇诗歌
+   */
+  handletouchend: function(event) {
+    console.log(event);
+    let currentX = event.changedTouches[0].pageX;
+    let currentY = event.changedTouches[0].pageY;
 
     console.log(currentX);
     console.log(this.data.lastX);
@@ -97,15 +133,6 @@ Page({
     //将当前坐标进行保存以进行下一次计算
     this.data.lastX = currentX;
     this.data.lastY = currentY;
-  },
-
-  /**
-   * 处理手指触摸动作开始事件，将当前坐标数据保存下来
-   */
-  handletouchtart: function(event) {
-    console.log(event);
-    this.data.lastX = event.touches[0].pageX;
-    this.data.lastY = event.touches[0].pageY;
   },
 
   /**
