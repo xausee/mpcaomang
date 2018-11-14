@@ -25,3 +25,49 @@
     <view class="weui-footer__text">Copyright © 2018 bitdata.site</view>
   </view>
 </view>
+
+<!-- <view class="page__bd page__bd_spacing">
+        <view class="weui-flex">
+            <view class="weui-flex__item"><view class="placeholder">weui</view></view>
+        </view>
+        <view class="weui-flex">
+            <view class="weui-flex__item"><view class="placeholder">weui</view></view>
+            <view class="weui-flex__item"><view class="placeholder">weui</view></view>
+        </view>
+        <view class="weui-flex">
+            <view class="weui-flex__item"><view class="placeholder">weui</view></view>
+            <view class="weui-flex__item"><view class="placeholder">weui</view></view>
+            <view class="weui-flex__item"><view class="placeholder">weui</view></view>
+        </view>
+        <view class="weui-flex">
+            <view class="weui-flex__item"><view class="placeholder">weui</view></view>
+            <view class="weui-flex__item"><view class="placeholder">weui</view></view>
+            <view class="weui-flex__item"><view class="placeholder">weui</view></view>
+            <view class="weui-flex__item"><view class="placeholder">weui</view></view>
+        </view>
+        <view class="weui-flex">
+            <view><view class="placeholder">weui</view></view>
+            <view class="weui-flex__item"><view class="placeholder">weui</view></view>
+            <view><view class="placeholder">weui</view></view>
+        </view>
+    </view> -->
+
+<div class="page__bd page__bd_spacing">
+  <!-- <div class="weui-label-list">
+    <label class="label f-blue b-blue">李白</label>
+    <label class="label f-white bg-green">韩信</label>
+    <label class="label f-red b-red">蔡文姬</label>
+    <label class="label f-black b-green">毒奶</label>
+  </div>
+  <div class="weui-label-list">
+    <label class="weui-label-s b-green">金庸</label>
+    <label class="weui-label-s b-orange">梁羽生</label>
+    <label class="weui-label-s b-blue f-blue">古龙</label>
+    <label class="weui-label-s b-red f-black">卧龙生</label>
+  </div> -->
+  <div class="weui-label-list">
+    <label bindtap="goToSearchPageWithKey" data-key="{{item.name}}" wx:for="{{poetListWithColor}}" class="weui-label-s" style="color: {{item.color}}">
+      {{item.name}}
+    </label>
+  </div>
+</div>

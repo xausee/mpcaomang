@@ -1,4 +1,16 @@
 Page({
+  /**
+   * 初始加载处理，获取诗歌内容
+   */
+  onLoad: function(options) {
+    if (options["key"] !== undefined){
+      this.setData({
+        inputVal: options["key"],
+        inputShowed: true,
+      });
+      this.search(options["key"]);
+    }
+  },
   data: {
     inputShowed: false,
     inputVal: ""
