@@ -22,7 +22,7 @@
     <button bindtap="goToSearchPage" class="weui-btn mini-btn" type="primary" size="mini" plain="true">自由搜索</button>
   </view>
 
-  <navigator url="../poetlist/poetlist" class="weui-cell weui-cell_access">
+  <navigator url="../poetsAlphabetIndex/poetsAlphabetIndex" class="weui-cell weui-cell_access">
     <view class="weui-cell__bd">诗人拼音索引</view>
     <view class="weui-cell__ft weui-cell__ft_in-access"></view>
   </navigator>

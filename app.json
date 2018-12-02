@@ -5,7 +5,7 @@
     "pages/article/article",
     "pages/randomArticle/article",
     "pages/search/search",
-    "pages/poetlist/poetlist",
+    "pages/poetsAlphabetIndex/poetsAlphabetIndex",
     "pages/poetinfo/poetinfo"
   ],
   "window": {
