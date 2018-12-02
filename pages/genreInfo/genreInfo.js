@@ -1,18 +1,19 @@
+// pages/genreInfo/genreInfo.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    poetData: {},
+    genreData: {},
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (options["poetId"] !== undefined) {
-      this.getPoetData(options["poetId"]);
+    if (options["genreId"] !== undefined) {
+      this.getGenreData(options["genreId"]);
     }
   },
 
@@ -66,28 +67,27 @@ Page({
   },
 
   /**
-   * 调用诗歌搜索接口进行搜索
+   * 调用单个诗歌流派搜索接口进行搜索
    */
-  getPoetData: function (poetId) {
+  getGenreData: function (genreId) {
     var that = this;
     wx.request({
-      url: 'https://bitdata.site/getPoetData',
+      url: 'https://bitdata.site/getGenreData',
       data: {
-        "poetId": poetId
+        "genreId": genreId
       },
       method: "POST",
       header: {
         "Content-Type": "application/json"
       },
       complete: function (res) {
-        console.log("call getPoetData finish.");
+        console.log("call getGenreData finish.");
       },
       success: function (res) {
         that.setData({
-          poetData: res.data
+          genreData: res.data
         });
       }
     });
   },
-
 })

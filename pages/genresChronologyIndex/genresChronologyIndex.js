@@ -1,14 +1,15 @@
+// pages/genresChronologyIndex/genresChronologyIndex.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    poetChronologyList: [],
+    genreChronologyList: [],
   },
 
   kindToggle: function (e) {
-    var id = e.currentTarget.id, list = this.data.poetChronologyList;
+    var id = e.currentTarget.id, list = this.data.genreChronologyList;
     for (var i = 0, len = list.length; i < len; ++i) {
       if (list[i].id == id) {
         list[i].open = !list[i].open
@@ -17,7 +18,7 @@ Page({
       }
     }
     this.setData({
-      poetChronologyList: list
+      genreChronologyList: list
     });
   },
 
@@ -25,7 +26,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getPoets();
+    this.getGenres();
   },
 
   /**
@@ -78,12 +79,12 @@ Page({
   },
 
   /**
-   * 调用诗人查询接口，获取诗人名列表
-   */
-  getPoets: function (id) {
+  * 调用诗人查询接口，获取诗人名列表
+  */
+  getGenres: function (id) {
     var that = this;
     wx.request({
-      url: 'https://bitdata.site/getPoets',
+      url: 'https://bitdata.site/getGenres',
       data: {
         "amount": 60
       },
@@ -92,12 +93,12 @@ Page({
         "Content-Type": "application/json"
       },
       complete: function (res) {
-        console.log("call getPoets finish");
+        console.log("call getGenres finish");
       },
       success: function (res) {
-        var results = that.convertPoets(res.data);
+        var results = that.convertGenres(res.data);
         that.setData({
-          poetChronologyList: results
+          genreChronologyList: results
         })
       }
     })
@@ -106,20 +107,20 @@ Page({
   /**
    * 转换诗人数据格式
    */
-  convertPoets: function (poets) {
-    var chronologies = ["20世纪20年代", "20世纪30年代", "20世纪40年代", "20世纪50年代", "20世纪60年代", "20世纪70年代", "20世纪80年代(上)", "20世纪80年代(下)", "20世纪90年代(上)", "20世纪90年代(下)", "21世纪初(上)"];
+  convertGenres: function (genres) {
+    var chronologies = ["20世纪初至20年代", "20世纪20年代", "20世纪30年代", "20世纪40年代", "20世纪50年代", "20世纪60年代", "20世纪70年代", "20世纪80年代", "20世纪90年代", "21世纪初"];
     var results = [];
     for (var i = 0; i < chronologies.length; i++) {
-      var poetsInOneChronology = [];
+      var genresInOneChronology = [];
       var chronology = chronologies[i];
-      for (var j = 0; j < poets.length; j++) {
-        var poet = poets[j];
-        if (poet.chronology === chronology) {
-          poetsInOneChronology.push({ id: poets[j].id, name: poets[j].name });
+      for (var j = 0; j < genres.length; j++) {
+        var genre = genres[j];
+        if (genre.chronology === chronology) {
+          genresInOneChronology.push({ id: genres[j].id, name: genres[j].name });
         }
       }
-      if (poetsInOneChronology.length > 0) {
-        results.push({ id: i, name: chronology, open: false, poetList: poetsInOneChronology })
+      if (genresInOneChronology.length > 0) {
+        results.push({ id: i, name: chronology, open: false, genreList: genresInOneChronology })
       }
     }
     return results;

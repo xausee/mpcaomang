@@ -1,0 +1,16 @@
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">{{genreData.name}}</view>
+        <!-- <view class="page__desc">{{genreData.intro}}</view> -->
+    </view>
+    <view class="page__bd">
+        <view class="weui-cells__title">{{genreData.intro}}</view>
+        <view class="page__title">代表诗人列表：</view>
+        <view class="weui-cells weui-cells_after-title">
+            <navigator wx:for="{{genreData.poets}}" wx:key="*this" class="weui-cell weui-cell_access" hover-class="weui-cell_active" url="../poetInfo/poetInfo?poetId={{item.id}}">
+                <view class="weui-cell__bd">{{item.name}}</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+        </view>
+    </view>
+</view>
