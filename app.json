@@ -1,15 +1,17 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/logs/logs",
     "pages/article/article",
     "pages/randomArticle/article",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/poetlist/poetlist",
+    "pages/poetinfo/poetinfo"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "草莽",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   }
 }

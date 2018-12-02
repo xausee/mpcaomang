@@ -1,0 +1,17 @@
+<!--pages/articlelist/articlelist.wxml-->
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">{{poetData.name}}</view>
+        <!-- <view class="page__desc">{{poetData.intro}}</view> -->
+    </view>
+    <view class="page__bd">
+        <view class="weui-cells__title">{{poetData.intro}}</view>
+        <view class="page__title">诗列表：</view>
+        <view class="weui-cells weui-cells_after-title">
+            <navigator url="../article/article?id={{item.id}}" wx:for="{{poetData.poems}}" wx:key="*this" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">{{item.title}}</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+        </view>
+    </view>
+</view>
