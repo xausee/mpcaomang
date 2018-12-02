@@ -1,15 +1,15 @@
-// pages/genresChronologyIndex/genresChronologyIndex.js
+// pages/genresAlphabetIndex/genresAlphabetIndex.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    genreChronologyList: [],
+    genreAlphabetList: [],
   },
 
   kindToggle: function (e) {
-    var id = e.currentTarget.id, list = this.data.genreChronologyList;
+    var id = e.currentTarget.id, list = this.data.genreAlphabetList;
     for (var i = 0, len = list.length; i < len; ++i) {
       if (list[i].id == id) {
         list[i].open = !list[i].open
@@ -18,7 +18,7 @@ Page({
       }
     }
     this.setData({
-      genreChronologyList: list
+      genreAlphabetList: list
     });
   },
 
@@ -79,8 +79,8 @@ Page({
   },
 
   /**
-  * 调用流派查询接口
-  */
+   * 调用诗人查询接口，获取诗人名列表
+   */
   getGenres: function (id) {
     var that = this;
     wx.request({
@@ -98,7 +98,7 @@ Page({
       success: function (res) {
         var results = that.convertGenres(res.data);
         that.setData({
-          genreChronologyList: results
+          genreAlphabetList: results
         })
       }
     })
@@ -108,22 +108,22 @@ Page({
    * 转换流派数据格式
    */
   convertGenres: function (genres) {
-    var chronologies = ["20世纪初至20年代", "20世纪20年代", "20世纪30年代", "20世纪40年代", "20世纪50年代", "20世纪60年代", "20世纪70年代", "20世纪80年代", "20世纪90年代", "21世纪初"];
+    var alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
     var results = [];
-    for (var i = 0; i < chronologies.length; i++) {
-      var genresInOneChronology = [];
-      var chronology = chronologies[i];
+    for (var i = 0; i < alphabet.length; i++) {
+      var genresInOneAlphabet = [];
+      var alpha = alphabet[i];
       for (var j = 0; j < genres.length; j++) {
         var genre = genres[j];
-        if (genre.chronology === chronology) {
-          genresInOneChronology.push({ id: genres[j].id, name: genres[j].name });
+        if (genre.alphabetIndex === alpha) {
+          genresInOneAlphabet.push({ id: genres[j].id, name: genres[j].name });
         }
       }
-      if (genresInOneChronology.length > 0) {
-        results.push({ id: i, name: chronology, open: false, genreList: genresInOneChronology })
+      if (genresInOneAlphabet.length > 0) {
+        results.push({ id: alpha, name: alpha, open: false, genreList: genresInOneAlphabet })
       }
     }
     return results;
-  },
-  
+  }
+
 })

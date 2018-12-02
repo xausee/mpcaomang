@@ -30,10 +30,16 @@
     <view class="weui-cell__bd">诗人年代索引</view>
     <view class="weui-cell__ft weui-cell__ft_in-access"></view>
   </navigator>
-   <navigator url="../genresChronologyIndex/genresChronologyIndex" class="weui-cell weui-cell_access">
-    <view class="weui-cell__bd">诗歌流派索引</view>
+   <navigator url="../genresAlphabetIndex/genresAlphabetIndex" class="weui-cell weui-cell_access">
+    <view class="weui-cell__bd">流派字母索引</view>
     <view class="weui-cell__ft weui-cell__ft_in-access"></view>
   </navigator>
+   <navigator url="../genresChronologyIndex/genresChronologyIndex" class="weui-cell weui-cell_access">
+    <view class="weui-cell__bd">流派年代索引</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  </navigator>
+ 
+
 
   <!-- <view class="weui-label-list">
     <label bindtap="goToSearchPageWithKey" data-key="{{item.name}}" wx:for="{{poetListWithColor}}" class="weui-label-s" style="color: {{item.color}}">

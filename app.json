@@ -9,7 +9,8 @@
     "pages/poetInfo/poetInfo",
     "pages/poetsChronologyIndex/poetsChronologyIndex",
     "pages/genresChronologyIndex/genresChronologyIndex",
-    "pages/genreInfo/genreInfo"
+    "pages/genreInfo/genreInfo",
+    "pages/genresAlphabetIndex/genresAlphabetIndex"
   ],
   "window": {
     "backgroundTextStyle": "light",
