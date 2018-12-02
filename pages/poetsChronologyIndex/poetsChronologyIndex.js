@@ -1,15 +1,14 @@
-// pages/poetlist/poetlist.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    poetAlphabetList: [],
+    poetChronologyList: [],
   },
 
   kindToggle: function (e) {
-    var id = e.currentTarget.id, list = this.data.poetAlphabetList;
+    var id = e.currentTarget.id, list = this.data.poetChronologyList;
     for (var i = 0, len = list.length; i < len; ++i) {
       if (list[i].id == id) {
         list[i].open = !list[i].open
@@ -18,7 +17,7 @@ Page({
       }
     }
     this.setData({
-      poetAlphabetList: list
+      poetChronologyList: list
     });
   },
 
@@ -96,9 +95,10 @@ Page({
         console.log("call getPoets finish");
       },
       success: function (res) {
+        console.log(res.data);
         var results = that.convertPoets(res.data);
         that.setData({
-          poetAlphabetList: results
+          poetChronologyList: results
         })
       }
     })
@@ -108,22 +108,21 @@ Page({
    * 转换诗人数据格式
    */
   convertPoets: function (poets) {
-    var alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+    var chronologies = ["20世纪20年代", "20世纪30年代", "20世纪40年代", "20世纪50年代", "20世纪60年代", "20世纪70年代", "20世纪80年代(上)", "20世纪80年代(下)", "20世纪90年代(上)", "20世纪90年代(下)", "21世纪初(上)"];
     var results = [];
-    for (var i = 0; i < alphabet.length; i++) {
-      var poetsInOneAlphabet = [];
-      var alpha = alphabet[i];
+    for (var i = 0; i < chronologies.length; i++) {
+      var poetsInOneChronology = [];
+      var chronology = chronologies[i];
       for (var j = 0; j < poets.length; j++) {
         var poet = poets[j];
-        if (poet.alphabetIndex === alpha) {
-          poetsInOneAlphabet.push({ id: poets[j].id, name: poets[j].name });
+        if (poet.chronology === chronology) {
+          poetsInOneChronology.push({ id: poets[j].id, name: poets[j].name });
         }
       }
-      if (poetsInOneAlphabet.length > 0) {
-        results.push({ id: alpha, name: alpha, open: false, poetList: poetsInOneAlphabet })
+      if (poetsInOneChronology.length > 0) {
+        results.push({ id: i, name: chronology, open: false, poetList: poetsInOneChronology })
       }
     }
     return results;
-  },
-  
+  }
 })

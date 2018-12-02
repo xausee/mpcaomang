@@ -6,7 +6,8 @@
     "pages/randomArticle/article",
     "pages/search/search",
     "pages/poetsAlphabetIndex/poetsAlphabetIndex",
-    "pages/poetinfo/poetinfo"
+    "pages/poetinfo/poetinfo",
+    "pages/poetsChronologyIndex/poetsChronologyIndex"
   ],
   "window": {
     "backgroundTextStyle": "light",
