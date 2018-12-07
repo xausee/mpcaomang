@@ -86,7 +86,7 @@ Page({
     wx.request({
       url: 'https://bitdata.site/getPoets',
       data: {
-        "amount": 60
+        //"amount": 60
       },
       method: "POST",
       header: {

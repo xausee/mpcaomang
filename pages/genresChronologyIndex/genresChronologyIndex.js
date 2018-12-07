@@ -86,7 +86,7 @@ Page({
     wx.request({
       url: 'https://bitdata.site/getGenres',
       data: {
-        "amount": 60
+        //"amount": 60
       },
       method: "POST",
       header: {
