@@ -38,6 +38,42 @@ Page({
   },
 
   /**
+   * 导航到诗人拼音索引页
+   */
+  goToPoetsAlphabetIndex: function () {
+    wx.navigateTo({
+      url: '../poetsAlphabetIndex/poetsAlphabetIndex'
+    })
+  },
+
+  /**
+   * 导航到诗人年代索引页
+   */
+  goToPoetsChronologyIndex: function () {
+    wx.navigateTo({
+      url: '../poetsChronologyIndex/poetsChronologyIndex'
+    })
+  },
+
+  /**
+ * 导航到诗歌拼音索引页
+ */
+  goToGenresAlphabetIndex: function () {
+    wx.navigateTo({
+      url: '../genresAlphabetIndex/genresAlphabetIndex'
+    })
+  },
+
+  /**
+ * 导航到诗歌年代索引页
+ */
+  goToGenresChronologyIndex: function () {
+    wx.navigateTo({
+      url: '../genresChronologyIndex/genresChronologyIndex'
+    })
+  },
+
+  /**
    * 导航到日式查看页面
    */
   viewLogs: function () {

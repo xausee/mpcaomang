@@ -18,28 +18,18 @@
     <text class="userinfo-nickname">{{motto}}</text>
   </view>
   <view class="button-sp-area">
-    <button bindtap="goToRandomArticlePage" class="weui-btn mini-btn" type="primary" size="mini" plain="true">随便读读</button>
-    <button bindtap="goToSearchPage" class="weui-btn mini-btn" type="primary" size="mini" plain="true">自由搜索</button>
+    <button bindtap="goToRandomArticlePage" class="weui-btn mini-btn" type="primary" size="mini" plain="true">随机推荐阅读</button>
+    <button bindtap="goToSearchPage" class="weui-btn mini-btn" type="primary" size="mini" plain="true">自由搜索阅读</button>
+  </view>
+  <view class="button-sp-area">
+    <button bindtap="goToPoetsAlphabetIndex" class="weui-btn mini-btn" type="primary" size="mini" plain="true">诗人拼音索引</button>
+    <button bindtap="goToPoetsChronologyIndex" class="weui-btn mini-btn" type="primary" size="mini" plain="true">诗人年代索引</button>
   </view>
 
-  <navigator url="../poetsAlphabetIndex/poetsAlphabetIndex" class="weui-cell weui-cell_access">
-    <view class="weui-cell__bd">诗人拼音索引</view>
-    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-  </navigator>
-  <navigator url="../poetsChronologyIndex/poetsChronologyIndex" class="weui-cell weui-cell_access">
-    <view class="weui-cell__bd">诗人年代索引</view>
-    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-  </navigator>
-   <navigator url="../genresAlphabetIndex/genresAlphabetIndex" class="weui-cell weui-cell_access">
-    <view class="weui-cell__bd">流派字母索引</view>
-    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-  </navigator>
-   <navigator url="../genresChronologyIndex/genresChronologyIndex" class="weui-cell weui-cell_access">
-    <view class="weui-cell__bd">流派年代索引</view>
-    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-  </navigator>
- 
-
+  <view class="button-sp-area">
+    <button bindtap="goToGenresAlphabetIndex" class="weui-btn mini-btn" type="primary" size="mini" plain="true">流派字母索引</button>
+    <button bindtap="goToGenresChronologyIndex" class="weui-btn mini-btn" type="primary" size="mini" plain="true">流派年代索引</button>
+  </view>
 
   <!-- <view class="weui-label-list">
     <label bindtap="goToSearchPageWithKey" data-key="{{item.name}}" wx:for="{{poetListWithColor}}" class="weui-label-s" style="color: {{item.color}}">
